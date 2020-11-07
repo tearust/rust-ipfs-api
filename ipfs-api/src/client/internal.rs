@@ -659,7 +659,7 @@ impl IpfsClient {
     /// ```
     ///
     #[inline]
-    pub async fn block_put<R>(&self, data: R) -> Result<response::BlockPutResponse, Error>
+    pub async fn block_put<R>(&self, data: R, pin: bool) -> Result<response::BlockPutResponse, Error>
     where
         R: 'static + Read + Send + Sync,
     {
@@ -667,7 +667,7 @@ impl IpfsClient {
 
         form.add_reader("data", data);
 
-        self.request(request::BlockPut, Some(form)).await
+        self.request(request::BlockPut { pin }, Some(form)).await
     }
 
     /// Removes an IPFS block.

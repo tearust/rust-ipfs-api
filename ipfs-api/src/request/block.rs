@@ -19,9 +19,10 @@ impl<'a> ApiRequest for BlockGet<'a> {
     const PATH: &'static str = "/block/get";
 }
 
-pub struct BlockPut;
-
-impl_skip_serialize!(BlockPut);
+#[derive(Serialize)]
+pub struct BlockPut {
+    pub pin: bool,
+}
 
 impl ApiRequest for BlockPut {
     const PATH: &'static str = "/block/put";
