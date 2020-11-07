@@ -10,14 +10,14 @@ Rust library for connecting to the IPFS HTTP API using tokio.
 
 ```toml
 [dependencies]
-ipfs-api = "0.9.0"
+ipfs-api = {git = "https://github.com/tearust/tea-rust-ipfs-api"}
 ```
 
 You can use `actix-web` as a backend instead of `hyper`.
 
 ```toml
 [dependencies]
-ipfs-api = { version = "0.9.0", features = ["actix"], default-features = false }
+ipfs-api = { git = "https://github.com/tearust/tea-rust-ipfs-api", features = ["actix"], default-features = false }
 ```
 
 ### Examples
