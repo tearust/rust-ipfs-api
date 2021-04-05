@@ -43,6 +43,15 @@ impl<'a> ApiRequest for ObjectGet<'a> {
 }
 
 #[derive(Serialize)]
+pub struct ObjectPut {
+    pub pin: bool,
+}
+
+impl ApiRequest for ObjectPut {
+    const PATH: &'static str = "/object/put";
+}
+
+#[derive(Serialize)]
 pub struct ObjectLinks<'a> {
     #[serde(rename = "arg")]
     pub key: &'a str,
